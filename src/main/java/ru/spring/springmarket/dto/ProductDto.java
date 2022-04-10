@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import ru.spring.springmarket.model.Product;
+
 
 import java.math.BigDecimal;
 

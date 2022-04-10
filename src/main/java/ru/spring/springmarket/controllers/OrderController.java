@@ -54,7 +54,7 @@ public class OrderController {
     public List<OrderDto> getOrders(
             Principal principal) {
         User user = userService.findByUsername(principal.getName()).orElseThrow(() -> new ResourceNotFoundException("User not found"));
-        return orderService.findAllByUser(user).stream().map(orderMapper::fromOrderToOrderDto).collect(Collectors.toList());
+        return orderService.findAllByUser(user).stream().map(orderMapper::toOrderDto).collect(Collectors.toList());
     }
 
 }

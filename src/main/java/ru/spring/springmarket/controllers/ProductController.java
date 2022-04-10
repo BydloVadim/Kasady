@@ -48,7 +48,7 @@ public class ProductController {
             page = 1;
         }
 
-        return productService.findAll(ProductSpecifications.build(params), page, 4).map(productMapper::fromProductToProductDto);
+        return productService.findAll(ProductSpecifications.build(params), page, 4).map(productMapper::toProductDto);
     }
 
 
@@ -70,7 +70,7 @@ public class ProductController {
             @PathVariable Long id) {
         Product p = productService.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product with id: " + id + " doesn't exist"));
 
-        return productMapper.fromProductToProductDto(p);
+        return productMapper.toProductDto(p);
     }
 
     @ApiOperation("Saves new product")
@@ -85,8 +85,8 @@ public class ProductController {
     @ResponseStatus(HttpStatus.CREATED)
     public ProductDto saveNewProduct(@RequestBody ProductDto productDto) {
         productDto.setId(null);
-        Product p = productService.save(productMapper.fromProductDtoToProduct(productDto));
-        return productMapper.fromProductToProductDto(p);
+        Product p = productService.save(productMapper.toProduct(productDto));
+        return productMapper.toProductDto(p);
     }
 
     @ApiOperation("Updates product")
@@ -101,8 +101,8 @@ public class ProductController {
     @PutMapping
     public ProductDto updateProduct(@RequestBody ProductDto productDto) {
 
-        Product p = productService.save(productMapper.fromProductDtoToProduct(productDto));
-        return productMapper.fromProductToProductDto(p);
+        Product p = productService.save(productMapper.toProduct(productDto));
+        return productMapper.toProductDto(p);
     }
 
     @ApiOperation("Deletes product with the given ID")

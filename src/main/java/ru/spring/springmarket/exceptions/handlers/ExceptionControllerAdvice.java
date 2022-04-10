@@ -13,7 +13,7 @@ import ru.spring.springmarket.exceptions.ResourceNotFoundException;
 public class ExceptionControllerAdvice {
     @ExceptionHandler
     public ResponseEntity<?> handleResourceNotFoundException(ResourceNotFoundException e) {
-        log.error(e.getMessage());
+        log.error(e.getMessage(), e);
         MarketError err = new MarketError(e.getMessage());
         return new ResponseEntity<>(err, HttpStatus.NOT_FOUND);
     }

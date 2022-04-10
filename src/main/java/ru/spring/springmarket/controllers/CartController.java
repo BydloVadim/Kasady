@@ -32,7 +32,7 @@ public class CartController {
     })
     @GetMapping
     public CartDto getCart() {
-        return cartMapper.fromCartToCartDto(cart);
+        return cartMapper.toCartDto(cart);
     }
 
 

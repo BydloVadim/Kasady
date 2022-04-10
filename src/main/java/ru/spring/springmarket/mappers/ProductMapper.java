@@ -13,7 +13,7 @@ public class ProductMapper {
     private final CategoryService categoryService;
 
 
-    public ProductDto fromProductToProductDto(Product product) {
+    public ProductDto toProductDto(Product product) {
         ProductDto productDto = new ProductDto();
         productDto.setId(product.getId());
         productDto.setTitle(product.getTitle());
@@ -23,7 +23,7 @@ public class ProductMapper {
 
     }
 
-    public Product fromProductDtoToProduct(ProductDto productDto) {
+    public Product toProduct(ProductDto productDto) {
         Product product = new Product();
         product.setId(productDto.getId());
         product.setTitle(productDto.getTitle());

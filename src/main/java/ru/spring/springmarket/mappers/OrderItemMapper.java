@@ -7,7 +7,7 @@ import ru.spring.springmarket.model.OrderItem;
 @Component
 public class OrderItemMapper {
 
-    public OrderItemDto fromOrderItemToOrderItemDto(OrderItem orderItem) {
+    public OrderItemDto toOrderItemDto(OrderItem orderItem) {
         OrderItemDto orderItemDto = new OrderItemDto();
         orderItemDto.setProductId(orderItem.getProduct().getId());
         orderItemDto.setProductTitle(orderItem.getProduct().getTitle());

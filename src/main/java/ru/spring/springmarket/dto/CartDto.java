@@ -4,13 +4,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.spring.springmarket.beans.Cart;
+
 
 
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @ApiModel(description = "Data transfer object for cart session bean")
 @NoArgsConstructor
